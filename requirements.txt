@@ -1,0 +1,7 @@
+pandasgui @ git+https://github.com/adamerose/pandasgui.git#egg=pandasgui
+PyMySQL==1.1.0
+requests==2.31.0
+rich==13.7.1
+SQLAlchemy==2.0.28
+rapidfuzz==3.8.1
+titlecase==2.4.1

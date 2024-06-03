@@ -1,0 +1,46 @@
+[tool.poetry]
+name = "cms_etl"
+version = "0.1.1"
+description = "Tools to extract, transform, and load data from the CMS website."
+authors = ["Evan Hart <evanhart@evanh.art>"]
+# readme = "README.md"
+include = ["src/data/*.json"]
+packages = [
+    { include = "cms_etl", from = "src" },
+    ]
+
+[tool.poetry.dependencies]
+python = "^3.12"
+pymysql = "^1.1.0"
+requests = "^2.31.0"
+rich = "^13.7.1"
+sqlalchemy = "^2.0.30"
+
+rapidfuzz = "^3.9.0"
+titlecase = "^2.4.1"
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.2.0"
+
+pandas-stubs = "^2.2.1.240316"
+types-requests = "^2.31.0.20240406"
+types-setuptools = "^69.5.0.20240513"
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+cms_etl = 'cms_etl.main:main'
+
+[tool.mypy]
+python_version = "3.12"
+warn_unused_configs = true
+exclude = ["build", "dist", "env", "venv", ".venv", ".vscode", ".git", ".mypy_cache", ".pytest_cache", "__pycache__"]
+plugins = ["pydantic.mypy"]
+
+[tool.ruff]
+target-version = "py312"
+line-length = 100
+
+[tool.pyright]
+pythonVersion = "3.12"
+typeCheckingMode = "standard"
