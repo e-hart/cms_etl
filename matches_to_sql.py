@@ -1,12 +1,11 @@
-import csv
+import argparse
 import json
-import sys
 from pathlib import Path
 
 
-def generate_sql(json_data):
+def generate_sql(json_data, table_name: str) -> str:
     sql_statements = []
-    sql_start = "INSERT INTO service_provider_profile_category (profile_id, cms_id, category_id) VALUES"
+    sql_start = f"INSERT INTO {table_name} (profile_id, cms_id, category_id) VALUES"
     sql_end = "ON DUPLICATE KEY UPDATE cms_id = VALUES(cms_id);"
 
     values_list = []
@@ -22,7 +21,7 @@ def generate_sql(json_data):
     return "\n".join(sql_statements)
 
 
-def main(input_file_path: str) -> None:
+def main(input_file_path: str, table_name: str) -> None:
     """Generate SQL statements from a JSON file."""
     input_path = Path(input_file_path)
     output_file_path = input_path.with_suffix(".sql")
@@ -31,7 +30,7 @@ def main(input_file_path: str) -> None:
         with open(input_path, "r", newline="", encoding="utf-8") as file:
             json_data = json.load(file)
 
-        sql_output = generate_sql(json_data)
+        sql_output = generate_sql(json_data, table_name)
 
         with open(output_file_path, "w", encoding="utf-8") as file:
             file.write(sql_output)
@@ -41,7 +40,14 @@ def main(input_file_path: str) -> None:
 
 
 if __name__ == "__main__":
-    if len(sys.argv) != 2:
-        print("Usage: python script.py <path_to_input_file>")
-    else:
-        main(sys.argv[1])
+    parser = argparse.ArgumentParser(
+        description="Generate SQL statements from JSON output of cms_etl matcher."
+    )
+    parser.add_argument(
+        "input_file_path", type=str, required=True, help="Path to the input JSON file."
+    )
+    parser.add_argument(
+        "--table", type=str, required=True, help="Table name for the SQL statements."
+    )
+    args = parser.parse_args()
+    main(args.input_file_path, args.table)
