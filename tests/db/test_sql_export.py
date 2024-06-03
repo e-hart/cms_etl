@@ -11,7 +11,7 @@ class TestSQLExport:
 
     def test_init(self, app_ctx_w_table):
         """Test the init method."""
-        sql_export = SQLExport(app_ctx_w_table, "test_table", "senior-one-prod")
+        sql_export = SQLExport(app_ctx_w_table, "test_table", "test_db")
         assert sql_export.table_key == "test_table"
         assert sql_export.db_key == "senior-one-prod"
         assert sql_export.table is not None
@@ -20,7 +20,7 @@ class TestSQLExport:
 
     def test_get_city_state_ids(self, app_ctx_w_table):
         """Test the get_city_state_ids method."""
-        sql_export = SQLExport(app_ctx_w_table, "test_table", "senior-one-prod")
+        sql_export = SQLExport(app_ctx_w_table, "test_table", "test_db")
         df = sql_export.ctx.table_mgr.get_table("test_table").df
         # print(df, "\n")
         for row in df.itertuples():
