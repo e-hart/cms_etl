@@ -3,8 +3,6 @@
 import numpy as np
 from cms_etl.db.sql_export import SQLExport
 
-# import pandas as pd
-
 
 class TestSQLExport:
     """Tests for the SQLExport class."""
@@ -13,7 +11,7 @@ class TestSQLExport:
         """Test the init method."""
         sql_export = SQLExport(app_ctx_w_table, "test_table", "test_db")
         assert sql_export.table_key == "test_table"
-        assert sql_export.db_key == "senior-one-prod"
+        assert sql_export.db_key == "test_db"
         assert sql_export.table is not None
         assert sql_export.table.name == "test_table"
         assert sql_export.db_interface is not None
