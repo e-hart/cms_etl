@@ -1,6 +1,8 @@
 # cms_etl
 
-Welcome! The main entry point is {root}/src/cms_etl/main.py, and you can work out from there.
+If you are reading this, there is a good chance my resume brought you in.
+Welcome! The main entry point is {root}/src/cms_etl/main.py,
+and following AppContext therein is a good way to get a quick impression of the app. I appreciate your consideration!
 
 cms_etl is an ETL library featuring an interactive console environment and scripting tools,
 used internally to expedite the ETL process for data provided by CMS.gov. Written in Python, primarily leveraging libraries:
