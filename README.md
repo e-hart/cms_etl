@@ -1,3 +1,6 @@
+##### DISCLAIMER: Developed for personal use on a client's project. Some portions of the application have been removed for client privacy.
+##### Not designed with general public consumption in mind, but feel free.
+
 # cms_etl
 
 If you are reading this, there is a good chance my resume brought you in.
@@ -39,4 +42,4 @@ I used this project as an opportunity to get some practice with traditional desi
 - Factory Pattern is used throughout, often in combination with other patterns.
 - Dependency Injection is utilized to decouple modules.
 
-##### SOME PORTIONS OF THE APPLICATION HAVE BEEN REMOVED FOR CLIENT PRIVACY
+
