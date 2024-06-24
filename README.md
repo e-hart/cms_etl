@@ -34,12 +34,3 @@ columns/tables, setting types, formatting addresses, etc.
 
 The macro export functionality doubles as a human-readable DSL for
 examining and editing ETL flows, and allows for fully-processed datasets to easily be used directly in scripts.
-
-I used this project as an opportunity to get some practice with traditional design patterns:
-- Adapter Pattern made it easy to support multiple database types.
-- A loose State pattern is used in the Menu system, with a central menu stack + loop keeping call stack depth in check.
-- Command Pattern allowed me to defer command execution and support macro functionality.
-- Factory Pattern is used throughout, often in combination with other patterns.
-- Dependency Injection is utilized to decouple modules.
-
-
